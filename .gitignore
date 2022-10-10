@@ -31,4 +31,8 @@
 *.out
 *.app
 
+# Formatted file backups
+*.orig
+
+# Build directory
 build/
