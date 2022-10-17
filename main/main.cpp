@@ -15,6 +15,10 @@ int sanity_test()
 
 SUB_TEST(main_tests, {&sanity_test, "Sanity Test"});
 
+extern "C" {
+    void app_main(void);
+}
+
 void app_main(void)
 {
     // Print chip info
