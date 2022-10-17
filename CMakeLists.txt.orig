@@ -1,9 +1,10 @@
-cmake_minimum_required(VERSION 3.9)
+cmake_minimum_required(VERSION 3.16)
 
+include($ENV{IDF_PATH}/tools/cmake/project.cmake)
 project(
   LayZar
   VERSION 0.1
-  LANGUAGES CXX)
+  LANGUAGES C CXX)
 
 set(REPO_URL "https://github.com/djpiper28/LayZar")
 
@@ -50,14 +51,3 @@ set(CMAKE_C_FLAGS_DEBUG "-g -Og ${COMPILER_FLAGS} -DDEBUG")
 set(CMAKE_CXX_FLAGS_DEBUG ${CMAKE_C_FLAGS_DEBUG})
 set(CMAKE_C_FLAGS_RELEASE "-Ofast ${COMPILER_FLAGS}")
 set(CMAKE_CXX_FLAGS_RELEASE ${CMAKE_C_FLAGS_RELEASE})
-
-# Add sources
-set(SRC ./testing.h/logger.h ./testing.h/logger.cpp)
-set(TESTING_SRC ${SRC} ./testing.h/testing.h ./testing.h/testing.cpp
-                ./testing.h/logger.h ./testing.h/logger.cpp ./tests/main.cpp)
-
-add_library(layzar STATIC ${SRC})
-
-enable_testing()
-add_executable(layzar-tests ${TESTING_SRC})
-add_test(layzar-tests layzar-tests)

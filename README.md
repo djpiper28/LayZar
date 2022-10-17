@@ -1,21 +1,29 @@
 # LayZar
-A library for generating optimised laser paths from vector graphics aimed at embedded devices.
+A library for generating optimised laser paths from vector graphics aimed at embedded devices
+that use the Arduino framework, i.e: the ESP32.
 
-## Compiling and, Testing
+## Building
+### Set ESP IDF Up
+Setup [ESP IDF](https://docs.espressif.com/projects/esp-idf/en/release-v3.3/get-started-cmake/index.html),
+as CMake uses this.
+
+### Install requirements
+ 1. cmake
+ 2. git
+ 3. python
+ 3. build-essential ?
+
+### Compiling and Testing
+Uncomment the component added for the test code
+
 ```bash
-# Enter a build folder
-mkdir -p build
+# idf.py menuconfig
+idf.py build
 
-# Compile
-cmake ..
-cmake --build . -j
-
-# Run tests with
-ctest -V
+# Flash the device
+# See https://docs.espressif.com/projects/esp-idf/en/release-v3.3/get-started-cmake/establish-serial-connection.html
+idf.py -p PORT flash monitor # To flash the test code and, monitor output
 ```
-
-## Targets
-This targets ESP32 and, Unix systems.
 
 ## Usage
  1. Submodule this project in your git repo.
